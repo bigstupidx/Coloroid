@@ -7,12 +7,6 @@ public class Ball : MonoBehaviour {
 	void Start () {
 		ballColor = Random.Range (1,4);
 		ChangeBallColor ();
-		print (ballColor);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	private void ChangeBallColor() {
@@ -27,5 +21,9 @@ public class Ball : MonoBehaviour {
 			this.gameObject.GetComponent<SpriteRenderer> ().color = Color.blue;
 			break;
 		}
+	}
+
+	public int GetBallColor() {
+		return ballColor;
 	}
 }

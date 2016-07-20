@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Rocket : MonoBehaviour {
 	private GameObject switchColor;
+	public Text scoreText;
 	private int rocketColor = 2; // green
 
 	// Use this for initialization
@@ -12,21 +14,16 @@ public class Rocket : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
+		rocketColor = switchColor.GetComponent<SwitchColor> ().GetRocketColor ();
 		if(coll.gameObject.tag == "Ball") {
-			if(rocketColor == 0) {
+			if(rocketColor == coll.gameObject.GetComponent<Ball>().GetBallColor()) {
 				print("uhuuuu");
+				scoreText.text = "juhuuu";
 				Destroy(coll.gameObject);
 			} else {
-				print("smola");
+				scoreText.text = "doriti";
 				Destroy(coll.gameObject);
 			}
-			//coll.gameObject.GetComponent<GameFieldAnimator> ().AnimateField ();
-			///StartCoroutine (BallScale());
-			/*if (turnBall) {
-				turnBall = false;
-			} else {
-				turnBall = true;			
-			}*/
 		}
 	}
 }
