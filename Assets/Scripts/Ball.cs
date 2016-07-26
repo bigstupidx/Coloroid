@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Ball : MonoBehaviour {
 	private int ballColor = 1;
+	public float gravitySpeed = 0.5f;
 	// Use this for initialization
 	void Start () {
 		ballColor = Random.Range (1,4);

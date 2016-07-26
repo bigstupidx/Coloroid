@@ -6,6 +6,7 @@ public class Rocket : MonoBehaviour {
 	private GameObject switchColor;
 	public Text scoreText;
 	private int rocketColor = 2; // green
+	private int gameScore = 0; 
 
 	// Use this for initialization
 	void Start () {
@@ -17,11 +18,11 @@ public class Rocket : MonoBehaviour {
 		rocketColor = switchColor.GetComponent<SwitchColor> ().GetRocketColor ();
 		if(coll.gameObject.tag == "Ball") {
 			if(rocketColor == coll.gameObject.GetComponent<Ball>().GetBallColor()) {
-				print("uhuuuu");
-				scoreText.text = "juhuuu";
+				gameScore++;
+				scoreText.text = gameScore.ToString();
 				Destroy(coll.gameObject);
 			} else {
-				scoreText.text = "doriti";
+				scoreText.text = "game over";
 				Destroy(coll.gameObject);
 			}
 		}

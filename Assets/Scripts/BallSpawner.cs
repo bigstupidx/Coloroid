@@ -3,10 +3,11 @@ using System.Collections;
 
 public class BallSpawner : MonoBehaviour {
 	public GameObject prefabBall;
+	public float respawnTime = 2.0f;
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("CreateBall", 2f, 2f);
+		InvokeRepeating ("CreateBall", 2.0f, respawnTime);
 	}
 		
 	private void CreateBall() {
