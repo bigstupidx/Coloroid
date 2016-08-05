@@ -34,5 +34,17 @@ public class Rocket : MonoBehaviour {
 	private void CheckScore() {
 		ballGravity += 0.01f;
 		GameObject.FindGameObjectWithTag ("BallSpawner").GetComponent<BallSpawner> ().SetGravitySpeed (ballGravity);
+
+		switch(gameScore) {
+			case 10:
+				switchColor.GetComponent<SwitchColor> ().SetNumberOfColor (4);
+			break;
+			case 20:
+				switchColor.GetComponent<SwitchColor> ().SetNumberOfColor (5);
+			break;
+			case 40:
+				switchColor.GetComponent<SwitchColor> ().SetNumberOfColor (6);
+			break;
+		}
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BallSpawner : MonoBehaviour {
 	public GameObject prefabBall;
-	public float respawnTime = 2.56f;
+	private float respawnTime = 2.56f;
 	private float lastTime = 0.0f;
 
 	void Update() {
