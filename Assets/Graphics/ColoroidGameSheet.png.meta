@@ -1,0 +1,722 @@
+fileFormatVersion: 2
+guid: 2fe89fb1f6e91384c80f0d9181c1180f
+timeCreated: 1470429339
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ColoroidGameSheet_0
+    21300002: ColoroidGameSheet_1
+    21300004: ColoroidGameSheet_2
+    21300006: ColoroidGameSheet_3
+    21300008: ColoroidGameSheet_4
+    21300010: ColoroidGameSheet_5
+    21300012: ColoroidGameSheet_6
+    21300014: ColoroidGameSheet_7
+    21300016: ColoroidGameSheet_8
+    21300018: ColoroidGameSheet_9
+    21300020: ColoroidGameSheet_10
+    21300022: ColoroidGameSheet_11
+    21300024: ColoroidGameSheet_12
+    21300026: ColoroidGameSheet_13
+    21300028: ColoroidGameSheet_14
+    21300030: ColoroidGameSheet_15
+    21300032: ColoroidGameSheet_16
+    21300034: ColoroidGameSheet_17
+    21300036: ColoroidGameSheet_18
+    21300038: ColoroidGameSheet_19
+    21300040: ColoroidGameSheet_20
+    21300042: ColoroidGameSheet_21
+    21300044: ColoroidGameSheet_22
+    21300046: ColoroidGameSheet_23
+    21300048: ColoroidGameSheet_24
+    21300050: ColoroidGameSheet_25
+    21300052: ColoroidGameSheet_26
+    21300054: ColoroidGameSheet_27
+    21300056: ColoroidGameSheet_28
+    21300058: ColoroidGameSheet_29
+    21300060: ColoroidGameSheet_30
+    21300062: ColoroidGameSheet_31
+    21300064: ColoroidGameSheet_32
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ColoroidGameSheet_0
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 707
+        width: 683
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -341.5, y: 16}
+        - {x: -341.5, y: -16}
+        - {x: 341.5, y: -16}
+        - {x: 341.5, y: 16}
+    - name: ColoroidGameSheet_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 469
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29.5, y: 44.5}
+        - {x: -44.5, y: 30.5}
+        - {x: -44.5, y: -38.5}
+        - {x: -24.5, y: -44.5}
+        - {x: 42.5, y: -44.5}
+        - {x: 44.5, y: -43.5}
+        - {x: 44.5, y: 44.5}
+    - name: ColoroidGameSheet_2
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 469
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: 44.5}
+        - {x: -44.5, y: 33.5}
+        - {x: -44.5, y: -34.5}
+        - {x: -25.5, y: -44.5}
+        - {x: 44.5, y: -44.5}
+        - {x: 44.5, y: 26.5}
+        - {x: 39.5, y: 44.5}
+    - name: ColoroidGameSheet_3
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 469
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 44.5}
+        - {x: -45, y: 34.5}
+        - {x: -45, y: -25.5}
+        - {x: -26, y: -44.5}
+        - {x: 32, y: -44.5}
+        - {x: 45, y: -33.5}
+        - {x: 45, y: 40.5}
+        - {x: 43, y: 44.5}
+    - name: ColoroidGameSheet_4
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 469
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 44.5}
+        - {x: -44.5, y: 19.5}
+        - {x: -44.5, y: -19.5}
+        - {x: -29.5, y: -44.5}
+        - {x: 42.5, y: -44.5}
+        - {x: 44.5, y: -35.5}
+        - {x: 44.5, y: 35.5}
+        - {x: 32.5, y: 44.5}
+    - name: ColoroidGameSheet_5
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 469
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.5, y: 44.5}
+        - {x: -44.5, y: 35.5}
+        - {x: -44.5, y: -36.5}
+        - {x: -39.5, y: -44.5}
+        - {x: 32.5, y: -44.5}
+        - {x: 44.5, y: -37.5}
+        - {x: 44.5, y: 30.5}
+        - {x: 31.5, y: 44.5}
+    - name: ColoroidGameSheet_6
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 469
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.5, y: 44.5}
+        - {x: -44.5, y: 35.5}
+        - {x: -44.5, y: -26.5}
+        - {x: -24.5, y: -44.5}
+        - {x: 26.5, y: -44.5}
+        - {x: 44.5, y: -23.5}
+        - {x: 44.5, y: 28.5}
+        - {x: 31.5, y: 44.5}
+    - name: ColoroidGameSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 469
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 44.5}
+        - {x: -45, y: 21.5}
+        - {x: -45, y: -25.5}
+        - {x: -26, y: -44.5}
+        - {x: 23, y: -44.5}
+        - {x: 45, y: -30.5}
+        - {x: 45, y: 29.5}
+        - {x: 28, y: 44.5}
+    - name: ColoroidGameSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 469
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42.5, y: 44.5}
+        - {x: -44.5, y: 42.5}
+        - {x: -44.5, y: -36.5}
+        - {x: -41.5, y: -44.5}
+        - {x: 25.5, y: -44.5}
+        - {x: 44.5, y: -27.5}
+        - {x: 44.5, y: 40.5}
+        - {x: 31.5, y: 44.5}
+    - name: ColoroidGameSheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 285
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.5, y: 45}
+        - {x: -44.5, y: 41}
+        - {x: -44.5, y: -40}
+        - {x: -37.5, y: -45}
+        - {x: 24.5, y: -45}
+        - {x: 44.5, y: -37}
+        - {x: 44.5, y: 43}
+        - {x: 35.5, y: 45}
+    - name: ColoroidGameSheet_10
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 285
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 45}
+        - {x: -44.5, y: 33}
+        - {x: -44.5, y: -43}
+        - {x: -33.5, y: -45}
+        - {x: 29.5, y: -45}
+        - {x: 44.5, y: -29}
+        - {x: 44.5, y: 27}
+        - {x: 29.5, y: 45}
+    - name: ColoroidGameSheet_11
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 285
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.5, y: 45}
+        - {x: -44.5, y: 33}
+        - {x: -44.5, y: -30}
+        - {x: -25.5, y: -45}
+        - {x: 24.5, y: -45}
+        - {x: 44.5, y: -40}
+        - {x: 44.5, y: 28}
+        - {x: 26.5, y: 45}
+    - name: ColoroidGameSheet_12
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 285
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.5, y: 45}
+        - {x: -44.5, y: 41}
+        - {x: -44.5, y: -40}
+        - {x: -37.5, y: -45}
+        - {x: 24.5, y: -45}
+        - {x: 44.5, y: -37}
+        - {x: 44.5, y: 43}
+        - {x: 35.5, y: 45}
+    - name: ColoroidGameSheet_13
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 285
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.5, y: 45}
+        - {x: -39.5, y: 45}
+        - {x: -44.5, y: 35}
+        - {x: -44.5, y: -36}
+        - {x: -31.5, y: -45}
+        - {x: 25.5, y: -45}
+        - {x: 43.5, y: -31}
+        - {x: 44.5, y: -27}
+        - {x: 44.5, y: 28}
+    - name: ColoroidGameSheet_14
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 285
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 45}
+        - {x: -45, y: 27}
+        - {x: -45, y: -26}
+        - {x: -24, y: -45}
+        - {x: 30, y: -45}
+        - {x: 45, y: -31}
+        - {x: 45, y: 27}
+        - {x: 39, y: 45}
+    - name: ColoroidGameSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 285
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.5, y: 25}
+        - {x: -44.5, y: -28}
+        - {x: -43.5, y: -36}
+        - {x: -35.5, y: -45}
+        - {x: 33.5, y: -45}
+        - {x: 44.5, y: -39}
+        - {x: 44.5, y: 29}
+        - {x: 35.5, y: 45}
+        - {x: -24.5, y: 45}
+        - {x: -42.5, y: 29}
+    - name: ColoroidGameSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 285
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.5, y: 45}
+        - {x: -44.5, y: 31}
+        - {x: -44.5, y: -37}
+        - {x: -34.5, y: -45}
+        - {x: 25.5, y: -45}
+        - {x: 44.5, y: -40}
+        - {x: 44.5, y: 40}
+        - {x: 30.5, y: 45}
+    - name: ColoroidGameSheet_17
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 145
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 45}
+        - {x: -33.5, y: 42}
+        - {x: -44.5, y: 35}
+        - {x: -44.5, y: -29}
+        - {x: -34.5, y: -45}
+        - {x: 25.5, y: -45}
+        - {x: 44.5, y: -26}
+        - {x: 44.5, y: 31}
+        - {x: 21.5, y: 45}
+    - name: ColoroidGameSheet_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 145
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: 45}
+        - {x: -33, y: 45}
+        - {x: -37, y: 44}
+        - {x: -45, y: 24}
+        - {x: -45, y: -35}
+        - {x: -28, y: -45}
+        - {x: 35, y: -45}
+        - {x: 45, y: -32}
+        - {x: 45, y: 26}
+        - {x: 42, y: 34}
+    - name: ColoroidGameSheet_19
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 145
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38.5, y: 45}
+        - {x: -44.5, y: 41}
+        - {x: -44.5, y: -41}
+        - {x: -30.5, y: -45}
+        - {x: 35.5, y: -45}
+        - {x: 44.5, y: -24}
+        - {x: 44.5, y: 35}
+        - {x: 36.5, y: 45}
+    - name: ColoroidGameSheet_20
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 145
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.5, y: 28}
+        - {x: -44.5, y: -26}
+        - {x: -39.5, y: -43}
+        - {x: -37.5, y: -45}
+        - {x: 27.5, y: -45}
+        - {x: 44.5, y: -37}
+        - {x: 44.5, y: 34}
+        - {x: 24.5, y: 45}
+        - {x: -18.5, y: 45}
+        - {x: -31.5, y: 42}
+    - name: ColoroidGameSheet_21
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 145
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.5, y: 45}
+        - {x: -44.5, y: -45}
+        - {x: 30.5, y: -45}
+        - {x: 44.5, y: -29}
+        - {x: 44.5, y: 37}
+        - {x: 22.5, y: 45}
+    - name: ColoroidGameSheet_22
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 145
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.5, y: 45}
+        - {x: -44.5, y: 28}
+        - {x: -44.5, y: -36}
+        - {x: -33.5, y: -45}
+        - {x: 20.5, y: -45}
+        - {x: 34.5, y: -41}
+        - {x: 44.5, y: -30}
+        - {x: 44.5, y: 28}
+        - {x: 39.5, y: 45}
+    - name: ColoroidGameSheet_23
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 145
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: 45}
+        - {x: -45, y: 23}
+        - {x: -45, y: -33}
+        - {x: -37, y: -45}
+        - {x: 36, y: -45}
+        - {x: 45, y: -35}
+        - {x: 45, y: 27}
+        - {x: 39, y: 45}
+    - name: ColoroidGameSheet_24
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 145
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27, y: 45}
+        - {x: -23, y: 45}
+        - {x: -35, y: 42}
+        - {x: -45, y: 25}
+        - {x: -45, y: -20}
+        - {x: -28, y: -43}
+        - {x: -23, y: -45}
+        - {x: 27, y: -45}
+        - {x: 45, y: -28}
+        - {x: 45, y: 26}
+        - {x: 42, y: 34}
+    - name: ColoroidGameSheet_25
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.5, y: 44.5}
+        - {x: -44.5, y: -29.5}
+        - {x: -26.5, y: -44.5}
+        - {x: 25.5, y: -44.5}
+        - {x: 44.5, y: -27.5}
+        - {x: 44.5, y: 38.5}
+        - {x: 30.5, y: 44.5}
+    - name: ColoroidGameSheet_26
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 44.5}
+        - {x: -30.5, y: 43.5}
+        - {x: -44.5, y: 22.5}
+        - {x: -44.5, y: -21.5}
+        - {x: -42.5, y: -33.5}
+        - {x: -25.5, y: -44.5}
+        - {x: 18.5, y: -44.5}
+        - {x: 30.5, y: -42.5}
+        - {x: 44.5, y: -21.5}
+        - {x: 44.5, y: 26.5}
+        - {x: 24.5, y: 44.5}
+    - name: ColoroidGameSheet_27
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 0
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24.5, y: 44.5}
+        - {x: -31.5, y: 44.5}
+        - {x: -44.5, y: 25.5}
+        - {x: -44.5, y: -44.5}
+        - {x: 44.5, y: -44.5}
+        - {x: 44.5, y: 31.5}
+    - name: ColoroidGameSheet_28
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 0
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34.5, y: 44.5}
+        - {x: -44.5, y: 41.5}
+        - {x: -44.5, y: -25.5}
+        - {x: -26.5, y: -44.5}
+        - {x: 27.5, y: -44.5}
+        - {x: 44.5, y: -26.5}
+        - {x: 44.5, y: 25.5}
+        - {x: 33.5, y: 44.5}
+    - name: ColoroidGameSheet_29
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 0
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30.5, y: 44.5}
+        - {x: -31.5, y: 44.5}
+        - {x: -44.5, y: 26.5}
+        - {x: -44.5, y: -42.5}
+        - {x: -40.5, y: -44.5}
+        - {x: 36.5, y: -44.5}
+        - {x: 44.5, y: -24.5}
+        - {x: 44.5, y: 29.5}
+    - name: ColoroidGameSheet_30
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 0
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: 44.5}
+        - {x: -45, y: 28.5}
+        - {x: -45, y: -35.5}
+        - {x: -30, y: -44.5}
+        - {x: 39, y: -44.5}
+        - {x: 45, y: -25.5}
+        - {x: 45, y: 30.5}
+        - {x: 35, y: 44.5}
+    - name: ColoroidGameSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 0
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23, y: 44.5}
+        - {x: -45, y: 33.5}
+        - {x: -45, y: -33.5}
+        - {x: -25, y: -43.5}
+        - {x: -20, y: -44.5}
+        - {x: 27, y: -44.5}
+        - {x: 45, y: -28.5}
+        - {x: 45, y: 28.5}
+        - {x: 25, y: 44.5}
+    - name: ColoroidGameSheet_32
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 0
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 44.5}
+        - {x: -44.5, y: 26.5}
+        - {x: -44.5, y: -26.5}
+        - {x: -24.5, y: -44.5}
+        - {x: 27.5, y: -44.5}
+        - {x: 44.5, y: -28.5}
+        - {x: 44.5, y: 24.5}
+        - {x: 30.5, y: 44.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

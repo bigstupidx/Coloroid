@@ -3,18 +3,12 @@ using System.Collections;
 
 public class Ball : MonoBehaviour {
 	private int ballColor = 1;
-	private int spriteShape = 0;
-	public Sprite[] ballSprite;
-	private int numbersOfColor = 7;
+	private int numbersOfColor = 6;
 
 	// Use this for initialization
 	void Start () {
-		numbersOfColor = GameObject.FindGameObjectWithTag ("SwitchColor").GetComponent<SwitchColor>().GetNumberOfColor();
-		print (numbersOfColor);
 		ballColor = Random.Range (1, numbersOfColor+1);
-		spriteShape = Random.Range (0, 3);
 		ChangeBallColor ();
-		this.gameObject.GetComponent<SpriteRenderer> ().sprite = ballSprite [spriteShape];
 	}
 
 	private void ChangeBallColor() {

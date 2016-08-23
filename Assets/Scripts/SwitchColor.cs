@@ -8,27 +8,30 @@ public class SwitchColor : MonoBehaviour {
 	private int numberOfColors = 3; 
 	private int rocketColor = 2;
 	private int actualColorPallete = 1;
+	private bool screenLock = true;
 	// RGBWOM
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)) {
-			if (Input.mousePosition.x <= Screen.width / 2) {
-				actualColorPallete++;
-				if(actualColorPallete <= numberOfColors) {
-					ChangeColorRocket (numberOfColors, actualColorPallete); 
+		if (screenLock) {
+			if (Input.GetMouseButtonDown (0)) {
+				if (Input.mousePosition.x <= Screen.width / 2) {
+					actualColorPallete++;
+					if (actualColorPallete <= numberOfColors) {
+						ChangeColorRocket (numberOfColors, actualColorPallete); 
+					} else {
+						actualColorPallete = 1;
+						ChangeColorRocket (numberOfColors, actualColorPallete);
+					}
 				} else {
-					actualColorPallete = 1;
-					ChangeColorRocket(numberOfColors, actualColorPallete);
-				}
-			} else {
-				print ("right");
-				actualColorPallete--;
-				if(actualColorPallete >= 1) {
-					ChangeColorRocket(numberOfColors, actualColorPallete);
-				} else {
-					actualColorPallete = numberOfColors;
-					ChangeColorRocket(numberOfColors, actualColorPallete);
+					print ("right");
+					actualColorPallete--;
+					if (actualColorPallete >= 1) {
+						ChangeColorRocket (numberOfColors, actualColorPallete);
+					} else {
+						actualColorPallete = numberOfColors;
+						ChangeColorRocket (numberOfColors, actualColorPallete);
+					}
 				}
 			}
 		}
@@ -181,6 +184,10 @@ public class SwitchColor : MonoBehaviour {
 		}
 	}
 
+	public void SetScreenLock(bool screenLock) {
+		this.screenLock = screenLock;
+	}
+		
 	public int GetRocketColor () {
 		return rocketColor;
 	}

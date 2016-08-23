@@ -16,10 +16,7 @@ public class BallSpawner : MonoBehaviour {
 	}
 		
 	private void CreateBall() {
-		Instantiate (prefabBall, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
-	}
-
-	public void SetGravitySpeed(float gravitySpeed) {
-		prefabBall.GetComponent<Rigidbody2D> ().gravityScale = gravitySpeed;
+		Vector2 spawnPoint = Random.insideUnitCircle * 1.3f;
+		Instantiate (prefabBall, new Vector3(spawnPoint.x, spawnPoint.y, 0), Quaternion.identity);
 	}
 }

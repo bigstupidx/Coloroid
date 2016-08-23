@@ -11,13 +11,12 @@ public class Rocket : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameObject.FindGameObjectWithTag ("BallSpawner").GetComponent<BallSpawner> ().SetGravitySpeed (ballGravity);
-		switchColor = GameObject.FindGameObjectWithTag ("SwitchColor");
-		rocketColor = switchColor.GetComponent<SwitchColor> ().GetRocketColor ();
+		//GameObject.FindGameObjectWithTag ("BallSpawner").GetComponent<BallSpawner> ().SetGravitySpeed (ballGravity);
+		//rocketColor = switchColor.GetComponent<SwitchColor> ().GetRocketColor ();
 	}
 
-	void OnCollisionEnter2D(Collision2D coll) {
-		rocketColor = switchColor.GetComponent<SwitchColor> ().GetRocketColor ();
+	/*void OnCollisionEnter2D(Collision2D coll) {
+		//rocketColor = switchColor.GetComponent<SwitchColor> ().GetRocketColor ();
 		if(coll.gameObject.tag == "Ball") {
 			if(rocketColor == coll.gameObject.GetComponent<Ball>().GetBallColor()) {
 				gameScore++;
@@ -29,9 +28,9 @@ public class Rocket : MonoBehaviour {
 				Destroy(coll.gameObject);
 			}
 		}
-	}
+	}*/
 
-	private void CheckScore() {
+	/*private void CheckScore() {
 		ballGravity += 0.01f;
 		GameObject.FindGameObjectWithTag ("BallSpawner").GetComponent<BallSpawner> ().SetGravitySpeed (ballGravity);
 
@@ -46,5 +45,5 @@ public class Rocket : MonoBehaviour {
 				switchColor.GetComponent<SwitchColor> ().SetNumberOfColor (6);
 			break;
 		}
-	}
+	}*/
 }
