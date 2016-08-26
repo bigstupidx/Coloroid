@@ -19,9 +19,9 @@ public class BorderSpawner : MonoBehaviour {
 		switch(numberOfBorders) {
 		case 2: 
 			GameObject borderObject;
-			borderObject = Instantiate (prefabBorder, new Vector3 (this.transform.position.x, this.transform.position.y, 0), Quaternion.identity) as GameObject;
+			/*borderObject = Instantiate (prefabBorder, new Vector3 (this.transform.position.x, this.transform.position.y, 0), Quaternion.identity) as GameObject;
 			borderObject.name = "Border1";
-			borderObject.GetComponent<DrawGameBorder> ().parentName = "Border1";
+			borderObject.GetComponent<DrawGameBorder> ().parentName = "Border1";*/
 			borderObject = Instantiate (prefabBorder, new Vector3 (this.transform.position.x, this.transform.position.y, 0), Quaternion.identity) as GameObject;
 			borderObject.name = "Border2";
 			borderObject.GetComponent<DrawGameBorder> ().parentName = "Border2";

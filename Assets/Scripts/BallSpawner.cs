@@ -6,14 +6,18 @@ public class BallSpawner : MonoBehaviour {
 	private float respawnTime = 2.56f;
 	private float lastTime = 0.0f;
 
-	void Update() {
+	void Start() {
+		CreateBall ();
+	}
+
+	/*void Update() {
 		if (Time.time > (lastTime + respawnTime)) {
 			CreateBall ();
 			lastTime = Time.time;
 			respawnTime -= 0.002f; // uber z respawn time kazde vytvorenie novej gulicky
 			print (respawnTime);
 		}
-	}
+	}*/
 		
 	private void CreateBall() {
 		Vector2 spawnPoint = Random.insideUnitCircle * 1.3f;

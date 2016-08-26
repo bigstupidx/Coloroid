@@ -41,6 +41,14 @@ public class DrawGameBorder : MonoBehaviour {
 			}
 			_mesh.vertices = vertices;
 			_mesh.triangles = indices;
+
+			Color[] colors = new Color[vertices.Length];
+
+			for (int i = 0; i < vertices.Length; i++)
+				colors[i] = Color.Lerp(Color.red, Color.green, vertices[i].y);
+
+			_mesh.colors = colors;	
+
 			AddColliderToDraw (vertices);
 		}
 
