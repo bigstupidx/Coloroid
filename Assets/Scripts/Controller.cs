@@ -13,7 +13,7 @@ public enum Level
 public class Controller : MonoBehaviour {
 
 	internal Level Diff = Level.Easy;
-	internal BallMove ballMover;
+	private GameObject ballMover;
 	internal ShakeCamera CameraObj;
 	#if CW_Admob
 	internal AdManager AdController;
@@ -30,111 +30,63 @@ public class Controller : MonoBehaviour {
 	//This is a constant float. We will use it to reset the dial's speed when restarting the game. 
 	//The value should be the same as on the dial script
 	int a;
-
-	[Tooltip("The Menu Canvas")]
 	public GameObject MenuCanvas;
-
-	[Tooltip("The Game Canvas")]
 	public GameObject GameCanvas;
-
-	[Tooltip("The Tap Canvas")]
 	public GameObject TapCanvas;
-
-	[Tooltip("The Game Over Canvas")]
 	public GameObject GameOverCanvas;
 
-	[Space(20)]
-
-	[Range(1,3)]
-	[Tooltip("The initial dial speed for the easy level")]
 	public float EasyDialSpeed = 3;
 
-	[Range(1,3)]
-	[Tooltip("The initial dial speed for the medium level")]
 	public float MediumDialSpeed = 2;
 
-	[Range(1,3)]
-	[Tooltip("The initial dial speed for the hard level")]
 	public float HardDialSpeed = 1.5f;
 
-	[Space(20)]
-
-	[Tooltip("The score text")]
 	public Text ScoreText;
-
-	[Tooltip("The final score text")]
 	public Text FinalScoreText;
-
-	[Tooltip("The highscore text")]
 	public Text HighScoreText;
-
-	[Tooltip("The sound button")]
 	public Button soundButton;
-
-	[Space(20)]
-
-	[Tooltip("The image to display when the game sound is on mute")]
 	public Sprite Mute;
-
-	[Tooltip("The image to display when the game sound is on")]
 	public Sprite SoundOn;
-
-	[Tooltip("The soundclip that play when the player matches the correct color")]
 	public AudioClip CorrectColor;
-
-	[Tooltip("The soundclip that play when the player matches the wrong color")]
 	public AudioClip WrongColor;
-
-	[Tooltip("Link to the store listing")]
 	public string GameLink;
-
-	[Tooltip("Link to your publisher page")]
 	public string MoreGames;
-
-	[Space(20)]
-
-	[Tooltip("A list of all the colors used in the game.")]
 	public Color[] colorList;
-
-	[Tooltip("The different circles we have")]
 	public GameObject[] Circles;
 
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
 		//PlayerPrefs.DeleteAll();
 		//Get the audio source component
-		Source=GetComponent<AudioSource>();
+		/*Source = GetComponent<AudioSource> ();
 
 		//Get the sound state( 1 - Sound on. 0 - Sound off)
-		Sound=PlayerPrefs.GetInt("Sound",1);
+		Sound = PlayerPrefs.GetInt ("Sound", 1);
 
 		//Update the sound settings
-		if(Sound==0)
-		{
-			AudioListener.pause=true;
-			Source.Stop();
-			soundButton.GetComponent<Image>().sprite=Mute;
-		}
-		else if (Sound==1)
-		{
-			AudioListener.pause=false;
-			Source.Stop();
-			soundButton.GetComponent<Image>().sprite=SoundOn;
-		}
-		else
-		{
-			PlayerPrefs.SetInt("Sound",1);
-			AudioListener.pause=false;
-			Source.Stop();
-			soundButton.GetComponent<Image>().sprite=SoundOn;
-		}
+		if (Sound == 0) {
+			AudioListener.pause = true;
+			Source.Stop ();
+			soundButton.GetComponent<Image> ().sprite = Mute;
+		} else { 
+			if (Sound == 1) {
+				AudioListener.pause = false;
+				Source.Stop ();
+				soundButton.GetComponent<Image> ().sprite = SoundOn;
+			} else {
+				PlayerPrefs.SetInt ("Sound", 1);
+				AudioListener.pause = false;
+				Source.Stop ();
+				soundButton.GetComponent<Image> ().sprite = SoundOn;
+			}
+		}*/
 
 		//Get the camera shake script
 		if (CameraObj == null)    CameraObj =(ShakeCamera)FindObjectOfType(typeof(ShakeCamera));
 
 		//Get the dial controller
-		if (ballMover == null)    ballMover =(BallMove)FindObjectOfType(typeof(BallMove));
+		if (ballMover == null)    ballMover = GameObject.FindGameObjectWithTag("Ball");
 
 		//Get the ad manager
 		#if CW_Admob
@@ -147,15 +99,16 @@ public class Controller : MonoBehaviour {
 		#endif
 
 		//Show main menu
-		Home();
+		//Home();
+		StartGame (2);
 	}
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Escape) && menu==false && ballMover.GameOver)
+		/*if(Input.GetKeyDown(KeyCode.Escape) && menu==false && ballMover.GameOver)
 			Home();
 		else if(Input.GetKeyDown(KeyCode.Escape) && menu==true)
-			Application.Quit();
+			Application.Quit();*/
 	}
 
 	//Shuffle the color list
@@ -209,17 +162,17 @@ public class Controller : MonoBehaviour {
 		//Get selected level and set the maximum number of color available for selection from the color list
 		if(difficulty==0)
 		{
-			ballMover.ArraySize=3;
+			ballMover.GetComponent<BallMove>().SetArraySize(2);
 			Diff=Level.Easy;
 		}
 		if(difficulty==1)
 		{
-			ballMover.ArraySize=4;
+			ballMover.GetComponent<BallMove>().SetArraySize(3);
 			Diff=Level.Medium;
 		}
 		if(difficulty==2)
 		{
-			ballMover.ArraySize=6;
+			ballMover.GetComponent<BallMove>().SetArraySize(4);
 			Diff=Level.Hard;
 		}
 
@@ -239,44 +192,43 @@ public class Controller : MonoBehaviour {
 		GameOverCanvas.SetActive(false);
 
 		//Hide the menu over canvas
-		MenuCanvas.SetActive(false);
+		//MenuCanvas.SetActive(false);
 
 		//Show the game canvas
-		GameCanvas.SetActive(true);
+		//GameCanvas.SetActive(true);
 
 		//Show the tap canvas
 		TapCanvas.SetActive(true);
 
 		//Show score text
-		ScoreText.gameObject.SetActive(true);
-		ScoreText.text="0";
+		//ScoreText.gameObject.SetActive(true);
+		//ScoreText.text="0";
 
 		//Reset score counter
-		Score=0;
+		//Score=0;
 
 		//Refresh the circle blocks color
 		GameObject[] blocks;
-		int a = GameObject.FindGameObjectsWithTag("Block").Length;
+		int a = GameObject.FindGameObjectsWithTag("CirclePart").Length;
 		blocks = new GameObject[a];
-		blocks = GameObject.FindGameObjectsWithTag("Block");
-		foreach(GameObject block in blocks)
-			block.GetComponent<CircleBlock>().SetColor();
+		blocks = GameObject.FindGameObjectsWithTag("CirclePart");
+		print ("ahoj");
+		foreach (GameObject b in blocks) {
+			print (b);
+			b.GetComponent<CircleBlock> ().SetColor ();
+		}
 
 		//Show dial
-		ballMover.ShowDial();
-
-		//Reset the dial's initial speed
-		if(Diff==Level.Easy)
-			ballMover.InitialSpeed=EasyDialSpeed;
-		else if(Diff==Level.Medium)
-			ballMover.InitialSpeed=MediumDialSpeed;
-		else if(Diff==Level.Hard)
-			ballMover.InitialSpeed=HardDialSpeed;
+		ballMover.GetComponent<BallMove>().ShowDial();
 
 		//Change dial color
-		ballMover.ChangeDialColor();
+		ballMover.GetComponent<BallMove>().ChangeDialColor();
 
 		menu=false;
+	}
+
+	public Color ReturnColorFromColorList(int colorNumber) {
+		return colorList [colorNumber];
 	}
 
 	//Update the score counter
@@ -291,16 +243,16 @@ public class Controller : MonoBehaviour {
 	}
 
 	//Game over
-	public void GameOver()
+	/*public void GameOver()
 	{
 		//Play Sound
 		Source.PlayOneShot(WrongColor);
 
 		//Hide the dial
-		ballMover.HideDial();
+		//ballMover.HideDial();
 
 		//Set the GameOver bool to true
-		ballMover.GameOver=true;
+		//ballMover.GameOver=true;
 
 		//Start camera shake
 		CameraObj.StartShake();
@@ -352,7 +304,7 @@ public class Controller : MonoBehaviour {
 		#if CW_Admob
 		AdController.ShowInterstitial();
 		#endif
-	}
+	}*/
 
 	//Show the game main menu
 	public void Home()
@@ -373,7 +325,7 @@ public class Controller : MonoBehaviour {
 		MenuCanvas.SetActive(true);
 
 		//Set the GameOver bool to true
-		ballMover.GameOver=true;
+		//ballMover.GameOver=true;
 
 		menu=true;
 	}
