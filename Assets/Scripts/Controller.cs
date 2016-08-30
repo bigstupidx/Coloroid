@@ -2,17 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public enum Level
-{
-	Easy,
-	Medium,
-	Hard
-}
-
 [RequireComponent(typeof(AudioSource))]
 public class Controller : MonoBehaviour {
 
-	internal Level Diff = Level.Easy;
 	private GameObject ballMover;
 	internal ShakeCamera CameraObj;
 	#if CW_Admob
@@ -22,11 +14,11 @@ public class Controller : MonoBehaviour {
 	internal LeaderboardManager Leaderboard;
 	#endif
 	internal AudioSource Source;
-	internal int Score;
+	internal int score;
 	internal int Highscore;
 	internal int Sound;
-	internal bool menu;
-	internal int SelectedLevel;
+	private bool menu;
+	private int selectedLevel = 0;
 	//This is a constant float. We will use it to reset the dial's speed when restarting the game. 
 	//The value should be the same as on the dial script
 	int a;
@@ -34,13 +26,6 @@ public class Controller : MonoBehaviour {
 	public GameObject GameCanvas;
 	public GameObject TapCanvas;
 	public GameObject GameOverCanvas;
-
-	public float EasyDialSpeed = 3;
-
-	public float MediumDialSpeed = 2;
-
-	public float HardDialSpeed = 1.5f;
-
 	public Text ScoreText;
 	public Text FinalScoreText;
 	public Text HighScoreText;
@@ -59,7 +44,7 @@ public class Controller : MonoBehaviour {
 	{
 		//PlayerPrefs.DeleteAll();
 		//Get the audio source component
-		/*Source = GetComponent<AudioSource> ();
+		Source = GetComponent<AudioSource> ();
 
 		//Get the sound state( 1 - Sound on. 0 - Sound off)
 		Sound = PlayerPrefs.GetInt ("Sound", 1);
@@ -80,7 +65,7 @@ public class Controller : MonoBehaviour {
 				Source.Stop ();
 				soundButton.GetComponent<Image> ().sprite = SoundOn;
 			}
-		}*/
+		}
 
 		//Get the camera shake script
 		if (CameraObj == null)    CameraObj =(ShakeCamera)FindObjectOfType(typeof(ShakeCamera));
@@ -99,16 +84,19 @@ public class Controller : MonoBehaviour {
 		#endif
 
 		//Show main menu
-		//Home();
-		StartGame (2);
+		Home();
 	}
 
 	void Update()
 	{
-		/*if(Input.GetKeyDown(KeyCode.Escape) && menu==false && ballMover.GameOver)
-			Home();
-		else if(Input.GetKeyDown(KeyCode.Escape) && menu==true)
-			Application.Quit();*/
+		if (Input.GetKeyDown (KeyCode.Escape) && menu == false && ballMover.GetComponent<BallMove> ().GetGameOver ()) {
+			Home ();
+		}
+
+		if (Input.GetKeyDown (KeyCode.Escape) && menu == true) {
+			print ("Quit");
+			Application.Quit ();
+		}
 	}
 
 	//Shuffle the color list
@@ -154,35 +142,18 @@ public class Controller : MonoBehaviour {
 	}
 
 	//Start the game
-	public void StartGame(int difficulty)
+	public void StartGame()
 	{
-		//Set the selected level. We will use we retrying the game to load the same level
-		SelectedLevel=difficulty;
-
-		//Get selected level and set the maximum number of color available for selection from the color list
-		if(difficulty==0)
-		{
-			ballMover.GetComponent<BallMove>().SetArraySize(2);
-			Diff=Level.Easy;
-		}
-		if(difficulty==1)
-		{
-			ballMover.GetComponent<BallMove>().SetArraySize(3);
-			Diff=Level.Medium;
-		}
-		if(difficulty==2)
-		{
-			ballMover.GetComponent<BallMove>().SetArraySize(4);
-			Diff=Level.Hard;
-		}
-
+		ballMover.GetComponent<BallMove>().SetArraySize(2);
+		ballMover.GetComponent<BallMove> ().SetBallSpeed (2.0f);
 		//Activate the correct circle based on difficulty selected above
-		for(int c=0; c<Circles.Length;c++)
-		{
-			if(c==difficulty)
-				Circles[c].SetActive(true);
-			else
-				Circles[c].SetActive(false);
+
+		for(int c=0; c<Circles.Length;c++) {
+			if (c == 0) {
+				Circles [c].SetActive (true);
+			} else {
+				Circles [c].SetActive (false);
+			}
 		}
 
 		//Shuffle the colorList
@@ -192,29 +163,27 @@ public class Controller : MonoBehaviour {
 		GameOverCanvas.SetActive(false);
 
 		//Hide the menu over canvas
-		//MenuCanvas.SetActive(false);
+		MenuCanvas.SetActive(false);
 
 		//Show the game canvas
-		//GameCanvas.SetActive(true);
+		GameCanvas.SetActive(true);
 
 		//Show the tap canvas
 		TapCanvas.SetActive(true);
 
 		//Show score text
-		//ScoreText.gameObject.SetActive(true);
-		//ScoreText.text="0";
+		ScoreText.gameObject.SetActive(true);
+		ScoreText.text="0";
 
 		//Reset score counter
-		//Score=0;
+		score=0;
 
 		//Refresh the circle blocks color
 		GameObject[] blocks;
 		int a = GameObject.FindGameObjectsWithTag("CirclePart").Length;
 		blocks = new GameObject[a];
 		blocks = GameObject.FindGameObjectsWithTag("CirclePart");
-		print ("ahoj");
 		foreach (GameObject b in blocks) {
-			print (b);
 			b.GetComponent<CircleBlock> ().SetColor ();
 		}
 
@@ -234,25 +203,91 @@ public class Controller : MonoBehaviour {
 	//Update the score counter
 	public void UpdateScore()
 	{
-		Score +=1;
-		ScoreText.text=Score.ToString("0");
+		score +=1;
+		ScoreText.text=score.ToString("0");
 		ScoreText.gameObject.GetComponent<Animation>().Play();
 
 		//Play Sound
 		Source.PlayOneShot(CorrectColor);
+		CheckCorrectLevel ();
+	}
+
+	public void CheckCorrectLevel() {
+		print ("check score");
+		switch(score) {
+		case 10: // lvl2
+			selectedLevel = 1;
+			ballMover.GetComponent<BallMove> ().SetArraySize (3);
+			ChangeLevel ();
+			break;
+		case 30: // lvl3
+			selectedLevel = 2;
+			ballMover.GetComponent<BallMove> ().SetArraySize (4);
+			ChangeLevel ();
+			break;
+		case 70: // lvl4
+			selectedLevel = 3;
+			ballMover.GetComponent<BallMove>().SetArraySize(5);
+			ChangeLevel ();
+			break;
+		case 140: // lvl5
+			selectedLevel = 4;
+			ballMover.GetComponent<BallMove>().SetArraySize(6);
+			ChangeLevel ();
+			break;
+		case 300: // lvl6
+			selectedLevel = 5;
+			ballMover.GetComponent<BallMove>().SetArraySize(8);
+			ChangeLevel ();
+			break;
+		case 500: // lvl7
+			selectedLevel = 6;
+			ballMover.GetComponent<BallMove>().SetArraySize(10);
+			ChangeLevel ();
+			break;
+		}
+	}
+
+	public void ChangeLevel() {
+		ballMover.GetComponent<BallMove>().SetGameOver(true);
+		for(int c=0; c<Circles.Length;c++)
+		{
+			if (c == selectedLevel) {
+				Circles [c].SetActive (true);
+			} else {
+				print (c);
+				Circles [c].SetActive (false);
+			}
+		}
+
+		ShuffleColors();
+		//Refresh the circle blocks color
+		GameObject[] blocks;
+		int a = GameObject.FindGameObjectsWithTag("CirclePart").Length;
+		blocks = new GameObject[a];
+		blocks = GameObject.FindGameObjectsWithTag("CirclePart");
+		foreach (GameObject b in blocks) {
+			b.GetComponent<CircleBlock> ().SetColor ();
+		}
+
+		//Show dial
+		ballMover.GetComponent<BallMove>().ShowDial();
+
+		//Change dial color
+		ballMover.GetComponent<BallMove>().ChangeDialColor();
+
+		menu=false;
 	}
 
 	//Game over
-	/*public void GameOver()
+	public void GameOver()
 	{
 		//Play Sound
 		Source.PlayOneShot(WrongColor);
 
-		//Hide the dial
-		//ballMover.HideDial();
-
 		//Set the GameOver bool to true
-		//ballMover.GameOver=true;
+		ballMover.GetComponent<BallMove>().SetGameOver(true);
+		ballMover.GetComponent<BallMove>().HideDial();
 
 		//Start camera shake
 		CameraObj.StartShake();
@@ -265,30 +300,15 @@ public class Controller : MonoBehaviour {
 
 		//Hide the tap canvas
 		TapCanvas.SetActive(false);
-
-		//Hide score text
 		ScoreText.gameObject.SetActive(false);
-
-		//Get the highscore
-		if(Diff==Level.Easy)
-			a=PlayerPrefs.GetInt("EasyHighscore",0);
-		if(Diff==Level.Medium)
-			a=PlayerPrefs.GetInt("MediumHighscore",0);
-		if(Diff==Level.Hard)
-			a=PlayerPrefs.GetInt("HardHighscore",0);
+		//Hide score text
+		a=PlayerPrefs.GetInt("Score",0);
 
 		//Compare the current score and the highscore
-		if(a<Score)
+		if(a<score)
 		{
-			a=Score;
-
-			if(Diff==Level.Easy)
-				PlayerPrefs.SetInt("EasyHighscore",a);
-			if(Diff==Level.Medium)
-				PlayerPrefs.SetInt("MediumHighscore",a);
-			if(Diff==Level.Hard)
-				PlayerPrefs.SetInt("HardHighscore",a);
-
+			a=score;
+			PlayerPrefs.SetInt("Score",a);
 			//Post the score to the Google Play Leaderboard
 			#if CW_Leaderboard
 			Leaderboard.PostScore(a);
@@ -299,19 +319,17 @@ public class Controller : MonoBehaviour {
 		HighScoreText.text=a.ToString();
 
 		//Display the score
-		FinalScoreText.text=Score.ToString();
+		FinalScoreText.text=score.ToString();
 
 		#if CW_Admob
 		AdController.ShowInterstitial();
 		#endif
-	}*/
+	}
 
 	//Show the game main menu
-	public void Home()
-	{
+	public void Home() {
 		//Hide the game over canvas
 		GameOverCanvas.SetActive(false);
-
 		//Hide the menu over canvas
 		MenuCanvas.SetActive(false);
 
@@ -333,7 +351,7 @@ public class Controller : MonoBehaviour {
 	//Reload the current level
 	public void Retry()
 	{
-		StartGame(SelectedLevel);
+		StartGame();
 	}
 
 	//Call this to redirect the user to the store

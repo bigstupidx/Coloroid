@@ -7,7 +7,7 @@ public class CircleBlock : MonoBehaviour {
 	public int colorIndex = 0;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (gameController == null) {
 			gameController = GameObject.FindGameObjectWithTag ("GameController");
 		}
