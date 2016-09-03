@@ -26,16 +26,21 @@ public class Controller : MonoBehaviour {
 	public GameObject GameCanvas;
 	public GameObject TapCanvas;
 	public GameObject GameOverCanvas;
+	public GameObject PlayBtn;
+	public GameObject GameOverPanel;
+	public GameObject ReturnToGameBtn;
+	public GameObject YesNoPanel;
 	public Text ScoreText;
 	public Text FinalScoreText;
 	public Text HighScoreText;
+	public Text MenuTopScore;
 	public Button soundButton;
 	public Sprite Mute;
 	public Sprite SoundOn;
 	public AudioClip CorrectColor;
 	public AudioClip WrongColor;
 	public string GameLink;
-	public string MoreGames;
+	public string FbLink;
 	public Color[] colorList;
 	public GameObject[] Circles;
 
@@ -89,14 +94,24 @@ public class Controller : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetKeyDown (KeyCode.Escape) && menu == false && ballMover.GetComponent<BallMove> ().GetGameOver ()) {
-			Home ();
+		if (Input.GetKeyDown (KeyCode.Escape) && (menu == false) && !ballMover.GetComponent<BallMove> ().GetGameOver ()) {
+			print ("ShowGameOverPanel");
+			ShowGameOverPanel (false);
+			//Home ();
 		}
 
 		if (Input.GetKeyDown (KeyCode.Escape) && menu == true) {
-			print ("Quit");
-			Application.Quit ();
+			YesNoPanel.SetActive (true);
 		}
+	}
+
+	public void QuitGame() {
+		print ("Quit");
+		Application.Quit ();
+	}
+
+	public void DisabledYesNoPanel() {
+		YesNoPanel.SetActive (false);
 	}
 
 	//Shuffle the color list
@@ -215,32 +230,32 @@ public class Controller : MonoBehaviour {
 	public void CheckCorrectLevel() {
 		print ("check score");
 		switch(score) {
-		case 10: // lvl2
+		case 5: // lvl2
 			selectedLevel = 1;
 			ballMover.GetComponent<BallMove> ().SetArraySize (3);
 			ChangeLevel ();
 			break;
-		case 30: // lvl3
+		case 15: // lvl3
 			selectedLevel = 2;
 			ballMover.GetComponent<BallMove> ().SetArraySize (4);
 			ChangeLevel ();
 			break;
-		case 70: // lvl4
+		case 30: // lvl4
 			selectedLevel = 3;
 			ballMover.GetComponent<BallMove>().SetArraySize(5);
 			ChangeLevel ();
 			break;
-		case 140: // lvl5
+		case 60: // lvl5
 			selectedLevel = 4;
 			ballMover.GetComponent<BallMove>().SetArraySize(6);
 			ChangeLevel ();
 			break;
-		case 300: // lvl6
+		case 100: // lvl6
 			selectedLevel = 5;
 			ballMover.GetComponent<BallMove>().SetArraySize(8);
 			ChangeLevel ();
 			break;
-		case 500: // lvl7
+		case 150: // lvl7
 			selectedLevel = 6;
 			ballMover.GetComponent<BallMove>().SetArraySize(10);
 			ChangeLevel ();
@@ -279,40 +294,21 @@ public class Controller : MonoBehaviour {
 		menu=false;
 	}
 
-	//Game over
-	public void GameOver()
-	{
-		//Play Sound
-		Source.PlayOneShot(WrongColor);
-
-		//Set the GameOver bool to true
+	public void ShowGameOverPanel(bool showGameOver) {
 		ballMover.GetComponent<BallMove>().SetGameOver(true);
-		ballMover.GetComponent<BallMove>().HideDial();
-
-		//Start camera shake
-		CameraObj.StartShake();
-
-		//Show the game over canvas
+		ballMover.GetComponent<BallMove> ().HideBall(true);
 		GameOverCanvas.SetActive(true);
-
-		//Hide the game canvas
-		GameCanvas.SetActive(false);
-
-		//Hide the tap canvas
+		GameOverPanel.GetComponent<RectTransform> ().localScale = Vector3.zero;
+		StartCoroutine (GameOverPanel.GetComponent<ActivateOnEnable> ().RunAnimation());
 		TapCanvas.SetActive(false);
 		ScoreText.gameObject.SetActive(false);
-		//Hide score text
+
 		a=PlayerPrefs.GetInt("Score",0);
 
-		//Compare the current score and the highscore
 		if(a<score)
 		{
 			a=score;
 			PlayerPrefs.SetInt("Score",a);
-			//Post the score to the Google Play Leaderboard
-			#if CW_Leaderboard
-			Leaderboard.PostScore(a);
-			#endif
 		}
 
 		//Display the highscore
@@ -320,6 +316,40 @@ public class Controller : MonoBehaviour {
 
 		//Display the score
 		FinalScoreText.text=score.ToString();
+
+		if (showGameOver) {
+			//ReturnToGameBtn.GetComponent<Button>().interactable = false;
+			ReturnToGameBtn.SetActive (false);
+			GameOver ();
+		} else {
+			//ReturnToGameBtn.GetComponent<Button>().interactable = true;
+			ReturnToGameBtn.SetActive (true);
+		}
+	}
+
+	public void UnPause() {
+		ballMover.GetComponent<BallMove>().SetGameOver(false);
+		ScoreText.gameObject.SetActive(true);
+		TapCanvas.SetActive(true);
+		ballMover.GetComponent<BallMove>().HideBall(false);
+		GameOverCanvas.SetActive(false);
+	}
+
+	//Game over
+	public void GameOver()
+	{
+		//Play Sound
+		Source.PlayOneShot(WrongColor);
+		GameCanvas.SetActive(false);
+		//Set the GameOver bool to true
+
+		//Start camera shake
+		CameraObj.StartShake();
+
+		//Post the score to the Google Play Leaderboard
+		#if CW_Leaderboard
+		Leaderboard.PostScore(a);
+		#endif
 
 		#if CW_Admob
 		AdController.ShowInterstitial();
@@ -339,12 +369,14 @@ public class Controller : MonoBehaviour {
 		//Hide the tap canvas
 		TapCanvas.SetActive(false);
 
+		a=PlayerPrefs.GetInt("Score",0);
+		MenuTopScore.text = a.ToString ();
+
 		//Show the menu over canvas
 		MenuCanvas.SetActive(true);
-
+		PlayBtn.GetComponent<RectTransform> ().localScale = Vector3.zero;
+		StartCoroutine (PlayBtn.GetComponent<ActivateOnEnable> ().RunAnimation());
 		//Set the GameOver bool to true
-		//ballMover.GameOver=true;
-
 		menu=true;
 	}
 
@@ -360,8 +392,8 @@ public class Controller : MonoBehaviour {
 		Application.OpenURL(GameLink);
 	}
 		
-	public void Portfolio()
+	public void FacebookLike()
 	{
-		Application.OpenURL(MoreGames);
+		Application.OpenURL(FbLink);
 	}
 }

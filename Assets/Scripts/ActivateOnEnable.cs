@@ -5,7 +5,7 @@ public class ActivateOnEnable : MonoBehaviour {
 
 	public EasyTween EasyTweenStart;
 
-	private IEnumerator Start () 
+	public IEnumerator RunAnimation () 
 	{
 		yield return new WaitForEndOfFrame();
 		EasyTweenStart.OpenCloseObjectAnimation();

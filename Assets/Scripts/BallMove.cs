@@ -44,15 +44,14 @@ public class BallMove : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll) {
 		if(coll.gameObject.tag == "CirclePart") {
 			currentBlockColor = coll.gameObject.GetComponent<CircleBlock> ().GetColorIndex ();
-			print (currentBlockColor + " " + currentColor);
 			if (currentBlockColor == currentColor) {
 				print ("update score");
-				ballSpeed += 0.005f;
+				ballSpeed += 0.009f;
 				ChangeDialColor ();
 				gameController.GetComponent<Controller> ().UpdateScore ();
 				anim.Play();
 			} else {
-				gameController.GetComponent<Controller> ().GameOver ();
+				gameController.GetComponent<Controller> ().ShowGameOverPanel (true);
 			}
 
 			if (turnBall) {
@@ -80,9 +79,12 @@ public class BallMove : MonoBehaviour {
 	}
 
 	//Hides the dial
-	public void HideDial()
-	{
-		gameObject.SetActive(false);
+	public void HideBall(bool hideBall) {
+		if (hideBall) {
+			gameObject.SetActive (false);
+		} else {
+			gameObject.SetActive (true);
+		}
 	}
 
 	//Shows the dial
