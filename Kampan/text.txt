@@ -1,0 +1,12 @@
+SK
+Coloroid je jednoduchá návyková hra. Pomocou klikania v¾avo alebo vpravo na obrazovku ovládaj gulièku.
+ Gulièkou traf správnu farbu v kruhu a získaj èo najvyššie skóre.  Pozor ovládanie je z poh¾adu gulièky.
+EN
+
+Coloroid is a simple addictive game. By clicking the left or right of the screen control 
+the ball and match with the correct color and get a high score. Attention control is from the perspective of the ball.
+
+CZ
+
+Coloroid je jednoduchá návyková hra. Pomocí klikání vlevo nebo vpravo na obrazovku ovládej kulièku.
+ Kulièkou traf správnou barvu v kruhu a získej co nejvyšší skóre. Pozor ovládání je z pohledu kulièky.

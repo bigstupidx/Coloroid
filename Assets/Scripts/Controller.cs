@@ -7,9 +7,9 @@ public class Controller : MonoBehaviour {
 
 	private GameObject ballMover;
 	internal ShakeCamera CameraObj;
-	#if CW_Admob
-	internal AdManager AdController;
-	#endif
+	//#if CW_Admob
+	private GameObject adController;
+	//#endif
 	#if CW_Leaderboard
 	internal LeaderboardManager Leaderboard;
 	#endif
@@ -79,9 +79,12 @@ public class Controller : MonoBehaviour {
 		if (ballMover == null)    ballMover = GameObject.FindGameObjectWithTag("Ball");
 
 		//Get the ad manager
-		#if CW_Admob
-		if (AdController == null)    AdController =(AdManager)FindObjectOfType(typeof(AdManager));
-		#endif
+		//#if CW_Admob
+		if (adController == null) {
+			adController = GameObject.FindGameObjectWithTag ("AdsManager");
+			print (adController);
+		}
+		//#endif
 
 		//Get the leaderboard manager
 		#if CW_Leaderboard
@@ -97,7 +100,6 @@ public class Controller : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape) && (menu == false) && !ballMover.GetComponent<BallMove> ().GetGameOver ()) {
 			print ("ShowGameOverPanel");
 			ShowGameOverPanel (false);
-			//Home ();
 		}
 
 		if (Input.GetKeyDown (KeyCode.Escape) && menu == true) {
@@ -351,9 +353,9 @@ public class Controller : MonoBehaviour {
 		Leaderboard.PostScore(a);
 		#endif
 
-		#if CW_Admob
-		AdController.ShowInterstitial();
-		#endif
+		//#if CW_Admob
+		adController.GetComponent<AdManager>().ShowInterstitial();
+		//#endif
 	}
 
 	//Show the game main menu

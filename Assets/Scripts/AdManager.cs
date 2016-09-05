@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-#if CW_Admob
+using GoogleMobileAds;
 using GoogleMobileAds.Api;
-#endif
 
 /*
  * Download the package here - https://github.com/googleads/googleads-mobile-unity/releases
@@ -11,34 +10,33 @@ using GoogleMobileAds.Api;
 
 public class AdManager : MonoBehaviour 
 {
-	#if CW_Admob
+	/*#if CW_Admob
 	#if UNITY_ANDROID
 	public string BannerAdUnitId = "INSERT_ANDROID_BANNER_AD_UNIT_ID_HERE";
 	#elif UNITY_IPHONE
 	public string BannerAdUnitId = "INSERT_IOS_BANNER_AD_UNIT_ID_HERE";
 	#else
 	public const string BannerAdUnitId = "unexpected_platform";
-	#endif
+	#endif*/
 
 	#if UNITY_ANDROID
-	public string InterstitialAdUnitId = "INSERT_ANDROID_INTERSTITIAL_AD_UNIT_ID_HERE";
+	public string InterstitialAdUnitId = "ca-app-pub-1882232042439946/2912108314";
 	#elif UNITY_IPHONE
 	public string InterstitialAdUnitId = "INSERT_IOS_INTERSTITIAL_AD_UNIT_ID_HERE";
 	#else
 	public const string InterstitialAdUnitId = "unexpected_platform";
 	#endif
 
-	[Tooltip("After how many 'gameovers' should we show an interstitial ad?")]
 	public int AdCounter;
 
 	private int c;
 
-	internal BannerView bannerView;
-	internal InterstitialAd interstitial;
+	//internal BannerView bannerView;
+	private InterstitialAd interstitial;
 
 	private void Awake()
 	{
-		RequestBanner();
+		//RequestBanner();
 		RequestInterstitial();
 	}
 
@@ -47,7 +45,7 @@ public class AdManager : MonoBehaviour
 		c=AdCounter;
 	}
 
-	private void RequestBanner()
+	/*private void RequestBanner()
 	{
 		// Create a 320x50 banner at the top of the screen.
 		bannerView = new BannerView(BannerAdUnitId, AdSize.Banner, AdPosition.Bottom);
@@ -57,10 +55,11 @@ public class AdManager : MonoBehaviour
 
 		// Load the banner with the request.
 		bannerView.LoadAd(request);
-	}
+	}*/
 
-	internal void RequestInterstitial()
+	private void RequestInterstitial()
 	{
+		Debug.Log ("Request inter");
 		// Initialize an InterstitialAd.
 		interstitial = new InterstitialAd(InterstitialAdUnitId);
 
@@ -71,27 +70,26 @@ public class AdManager : MonoBehaviour
 		interstitial.LoadAd(request);
 	}
 
-	internal void ShowInterstitial()
-	{
-		if(AdCounter<=0)
-		{
-			if (interstitial.IsLoaded()) 
-			{
-				interstitial.Show();
-				RequestInterstitial();
-
-				//Reset the ad counter
-				AdCounter=c;
+	public void ShowInterstitial() {
+		if (AdCounter <= 0) {
+			if (interstitial.IsLoaded ()) {
+				interstitial.Show ();
+				RequestInterstitial ();
+				AdCounter = c;
+			} else {
+				print ("Interstitial is not ready yet.");
+			}
+		} else {
+			if (AdCounter > 0) {
+				AdCounter -= 1;
 			}
 		}
-		else if(AdCounter>0)
-			AdCounter -=1;
 	}
 
-	void OnDisable()
-	{
-		bannerView.Destroy();
+
+	void OnDisable() {
+		//bannerView.Destroy();
 		interstitial.Destroy();
 	}
-	#endif
+	//#endif
 }
