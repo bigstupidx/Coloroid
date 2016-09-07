@@ -225,7 +225,12 @@ public class Controller : MonoBehaviour {
 		ScoreText.gameObject.GetComponent<Animation>().Play();
 
 		//Play Sound
-		Source.PlayOneShot(CorrectColor);
+		try {
+			Source.PlayOneShot(CorrectColor);
+		} catch(System.Exception e) {
+			Debug.Log ("Correct color");
+		}
+			
 		CheckCorrectLevel ();
 	}
 
@@ -341,7 +346,12 @@ public class Controller : MonoBehaviour {
 	public void GameOver()
 	{
 		//Play Sound
-		Source.PlayOneShot(WrongColor);
+		try {
+			Source.PlayOneShot(WrongColor);
+		} catch(System.Exception e) {
+			Debug.Log ("Wrong color");
+		}
+
 		GameCanvas.SetActive(false);
 		//Set the GameOver bool to true
 
